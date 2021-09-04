@@ -89,7 +89,7 @@ const smartPlay = () => {
         gloStatus.nextMode = "f";
         return;
     } else if (gloStatus.currStory === gloStatus.nextStory) {
-        if (gloStatus.nextMode = "f") {
+        if (gloStatus.nextMode === "f") {
             gloStatus.nextMode = "b";
         } else {
             gloStatus.nextMode = "f";
