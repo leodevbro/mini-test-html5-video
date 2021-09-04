@@ -1,4 +1,4 @@
-console.log("Page loaded 3");
+console.log("Page loaded");
 
 let maxZ = 8; // very important for z-index
 
@@ -69,33 +69,26 @@ const smartPlay = () => {
         return;
     } else if (!gloStatus.nextStory && gloStatus.nextMode === "b") {
         
-        // smartVideoElement.setAttribute(
-        //     "src",
-        //     gloStatus.currStory.urlOfBackwardVideo,
-        // );
         const nowVideo = gloStatus.currStory.elOfBackwardVideo;
         nowVideo.currentTime = 0;
         maxZ += 1;
         nowVideo.style.zIndex = maxZ;
-        // zVidArray.map((vid) => {
-        //     if (vid !== nowVideo) {
-        //         vid.style.zIndex = -3;
-        //     }
-        // });
         gloStatus.currVid = nowVideo;
-        // nowVideo.load();
         nowVideo.play();
         gloStatus.isCurrentlyPlaying = true;
         gloStatus.nextMode = "f";
         return;
     } else if (gloStatus.currStory === gloStatus.nextStory) {
-        if (gloStatus.nextMode === "f") {
-            gloStatus.nextMode = "b";
+        if (!gloStatus.currStory) {
+            return
         } else {
-            gloStatus.nextMode = "f";
+            //
         }
+    
         return;
     }
+
+    
 
     if (gloStatus.nextMode === "f") {
         gloStatus.currStory = gloStatus.nextStory;
@@ -125,11 +118,11 @@ const smartPlay = () => {
 };
 
 
-zVidArray.map((vid) => {
-    vid.addEventListener("ended", () => {
+zVidArray.map((zVid) => {
+    zVid.addEventListener("ended", () => {
         gloStatus.isCurrentlyPlaying = false;
         zVidArray.map((vid) => {
-            if (vid !== gloStatus.currVid) {
+            if (zVid !== vid) {
                 vid.currentTime = 0;
             }
         });
@@ -138,17 +131,11 @@ zVidArray.map((vid) => {
 });
 
 // ==================
-// ==================
-// ==================
-
-// gloStatus.nextStory = story1;
-// smartPlay();
 
 hoverBox1.addEventListener("mouseenter", () => {
     gloStatus.nextStory = story1;
     smartPlay();
 });
-
 hoverBox1.addEventListener("mouseleave", () => {
     gloStatus.nextStory = null;
     smartPlay();
@@ -160,7 +147,6 @@ hoverBox2.addEventListener("mouseenter", () => {
     gloStatus.nextStory = story2;
     smartPlay();
 });
-
 hoverBox2.addEventListener("mouseleave", () => {
     gloStatus.nextStory = null;
     smartPlay();
@@ -172,7 +158,6 @@ hoverBox3.addEventListener("mouseenter", () => {
     gloStatus.nextStory = story3;
     smartPlay();
 });
-
 hoverBox3.addEventListener("mouseleave", () => {
     gloStatus.nextStory = null;
     smartPlay();
