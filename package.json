@@ -1,0 +1,19 @@
+{
+  "name": "html5video",
+  "version": "1.0.0",
+  "description": "Cool test of HTML5 video tag",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leodevbro/mini-test-html5-video.git"
+  },
+  "author": "leodevbro",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/leodevbro/mini-test-html5-video/issues"
+  },
+  "homepage": "https://github.com/leodevbro/mini-test-html5-video#readme"
+}
