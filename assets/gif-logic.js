@@ -1,12 +1,7 @@
-console.log("Page loaded");
+console.log("Page loaded 3");
 
 let maxZ = 8; // very important for z-index
 
-// ./assets/gif/1.gif
-
-// const urlOfGif1 = require("./assets/gif/1.gif");
-
-// console.log(urlOfGif1);
 
 const smartVideoElement = document.querySelector(".smartVideoElement");
 
@@ -17,20 +12,9 @@ const zVid4 = document.querySelector(".zVid4");
 const zVid5 = document.querySelector(".zVid5");
 const zVid6 = document.querySelector(".zVid6");
 
-// zVid1.style.zIndex = 2;
 
 const zVidArray = [zVid1, zVid2, zVid3, zVid4, zVid5, zVid6];
 
-// setTimeout(() => {
-//     console.log("hapaaa");
-//     zVidArray.map((vid, i) => {
-//         if (i === 4) {
-//             vid.style.zIndex = 2;
-//         } else {
-//             vid.style.zIndex = -3;
-//         }
-//     });
-// }, 2000);
 
 const hoverBox1 = document.querySelector(".hoverBox1");
 const hoverBox2 = document.querySelector(".hoverBox2");
@@ -115,50 +99,31 @@ const smartPlay = () => {
 
     if (gloStatus.nextMode === "f") {
         gloStatus.currStory = gloStatus.nextStory;
-        // smartVideoElement.setAttribute(
-        //     "src",
-        //     gloStatus.currStory.urlOfForwardVideo,
-        // );
+
         const nowVideo = gloStatus.currStory.elOfForwardVideo;
         nowVideo.currentTime = 0;
         maxZ += 1;
         nowVideo.style.zIndex = maxZ;
-        // zVidArray.map((vid) => {
-        //     if (vid !== nowVideo) {
-        //         vid.style.zIndex = -3;
-        //     }
-        // });
+
         gloStatus.currVid = nowVideo;
-        // nowVideo.load();
+
         nowVideo.play();
         gloStatus.isCurrentlyPlaying = true;
         gloStatus.nextMode = "b";
     } else if (gloStatus.nextMode === "b") {
-        // smartVideoElement.setAttribute(
-        //     "src",
-        //     gloStatus.currStory.urlOfBackwardVideo,
-        // );
         const nowVideo = gloStatus.currStory.elOfBackwardVideo;
         nowVideo.currentTime = 0;
         maxZ += 1;
         nowVideo.style.zIndex = maxZ;
-        // zVidArray.map((vid) => {
-        //     if (vid !== nowVideo) {
-        //         vid.style.zIndex = -3;
-        //     }
-        // });
+
         gloStatus.currVid = nowVideo;
-        // nowVideo.load();
+
         nowVideo.play();
         gloStatus.isCurrentlyPlaying = true;
         gloStatus.nextMode = "f";
     }
 };
 
-// smartVideoElement.addEventListener("ended", () => {
-//     gloStatus.isCurrentlyPlaying = false;
-//     smartPlay();
-// });
 
 zVidArray.map((vid) => {
     vid.addEventListener("ended", () => {
